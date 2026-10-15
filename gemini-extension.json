@@ -1,0 +1,21 @@
+{
+  "name": "myv-score-editor",
+  "version": "1.0.0",
+  "description": "Let Gemini write and edit sheet music live in the MYV score editor (myv.tomwang221812.com/tools/score/). 讓 Gemini 在你打開的樂譜編輯器裡即時寫譜、改譜。",
+  "contextFileName": "GEMINI.md",
+  "settings": [
+    {
+      "name": "Score editor link",
+      "description": "In the editor press AI, copy the link (looks like https://myv.tomwang221812.com/mcp/score/ai2....). It is a secret: do not share it. 在編輯器按 AI，複製連結貼在這裡（等於密碼，不要分享）。",
+      "envVar": "MYV_SCORE_LINK",
+      "sensitive": true
+    }
+  ],
+  "mcpServers": {
+    "myv-score": {
+      "command": "node",
+      "args": ["${extensionPath}${/}bridge.mjs"],
+      "cwd": "${extensionPath}"
+    }
+  }
+}
